@@ -1,0 +1,13 @@
+{
+  "json.schemas": [],
+  "rust-analyzer.cargo.runBuildScripts": true,
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "rust-lang.rust-analyzer",
+  "files.exclude": {
+    "**/target": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}
