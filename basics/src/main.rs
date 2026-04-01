@@ -55,6 +55,14 @@ fn suma(a: i32, b: i32) -> i32 {
 //     }
 // }
 
+// tuplas con devolcion de dos valores
+
+// fn cal_ln(text: String) -> (String, usize) {
+//     let long = text.len();
+
+//     (text, long)
+// }
+
 fn main() {
     println!("Clase de VEC Curso Pildoras Informaticas");
 
@@ -114,7 +122,6 @@ fn main() {
     println!("saturating_add {saturated_sum}");
 
     // tuplas
-
     let tup = (10, "hello", true);
     println!("{:?}", tup);
 
@@ -129,19 +136,14 @@ fn main() {
     println!("tup_second, {first}");
 
     // println!("second", { second });
-
     second_funtion(999);
 
     // retorno en funciones
-
     let result: i32 = suma(99, 10077);
-
     println!("Resultado de la suma: {result}");
 
     // expresiones de control
-
     let num = 10;
-
     let num_less = 5;
 
     if num > 5 {
@@ -149,4 +151,52 @@ fn main() {
     } else {
         println!("El numero es menor a {num_less}");
     }
+
+    // iteradores y loops
+    let mut count = 0;
+
+    loop {
+        count += 1;
+        println!("Contador es {count}");
+        if count == 5 {
+            break;
+        }
+    }
+
+    let element = [1, 2, 3, 4, 5];
+
+    for e in element {
+        println!("Elemento es {e}");
+    }
+
+    println!("Ownership");
+
+    let lit = "Hola";
+
+    let type_string = String::from(lit);
+
+    println!("EL valor es: {type_string}");
+
+    // sin borrowing
+
+    // let msg = String::from("Hello world");
+
+    // let (new_msg, long) = cal_ln(msg);
+
+    // println!("La longitud es {long} de la palabra {new_msg}");
+
+    // funciones en rust
+
+    // NLL Non Lexical Lifetimes
+
+    let mut lexical = String::from("Hola");
+
+    let ref_1 = &lexical;
+    let ref_2 = &lexical;
+
+    println!("{ref_1} {ref_2}");
+
+    let ref_3 = &mut lexical;
+
+    println!("{ref_3}");
 }
