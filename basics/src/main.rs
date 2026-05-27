@@ -199,4 +199,53 @@ fn main() {
     let ref_3 = &mut lexical;
 
     println!("{ref_3}");
+
+    // slices Tipo especial se referencia con una [T]
+    // si el principio es 0 se puede omitir y se coloca el segundo
+
+    let frase = String::from("Bienvenido a Rust");
+
+    let bienvenida = &frase[0..10];
+
+    let lenguaje = &frase[13..17];
+
+    println!("Primer slice: {}", bienvenida);
+
+    println!("segundo slice: {}", lenguaje);
+
+    // structs
+    #[derive(Debug)]
+    struct Samurai {
+        nombre: String,
+        clan: String,
+        salud: u32,
+        honor: i32,
+    };
+
+    let samurai_1 = Samurai {
+        nombre: String::from("Musashi"),
+        clan: String::from("Miyamoto"),
+        salud: 100,
+        honor: 50,
+    };
+
+    // Para hacer copias de structs se puede usar el operador .. para copiar los campos que no se especifican
+
+    let samurai_2 = Samurai {
+        nombre: String::from("Kenshin"),
+        clan: String::from("Himura"),
+        ..samurai_1
+    };
+
+    // println!("Samurai 1: {:?}", samurai_1);
+    // println!("Samurai 2: {:?}", samurai_2);
+
+    struct Coordenada(f64, f64);
+
+    let Caracas = Coordenada(10.4806, 66.9036);
+
+    println!(
+        "Coordenada de Caracas: ({}, {}) mi ciudad natal.",
+        Caracas.0, Caracas.1
+    );
 }
