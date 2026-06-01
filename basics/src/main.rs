@@ -1,3 +1,7 @@
+// debug
+
+#[allow(dead_code)]
+
 // use rand::prelude::*;
 // use std::cmp::Ordering;
 // use std::io;
@@ -240,6 +244,7 @@ fn main() {
     // println!("Samurai 1: {:?}", samurai_1);
     // println!("Samurai 2: {:?}", samurai_2);
 
+    #[derive(Debug)]
     struct Coordenada(f64, f64);
 
     let Caracas = Coordenada(10.4806, 66.9036);
@@ -248,4 +253,19 @@ fn main() {
         "Coordenada de Caracas: ({}, {}) mi ciudad natal.",
         Caracas.0, Caracas.1
     );
+
+    #[derive(Debug)]
+    struct Rectangulo {
+        ancho: u32,
+        alto: u32,
+    }
+
+    let escala = 3;
+
+    let rect = Rectangulo {
+        ancho: dbg!(20 * escala),
+        alto: 80,
+    };
+
+    dbg!(&rect);
 }
