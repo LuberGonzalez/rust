@@ -260,12 +260,23 @@ fn main() {
         alto: u32,
     }
 
+    impl Rectangulo {
+        fn crear_area(&self) -> u32 {
+            self.ancho * self.alto
+        }
+    }
+
     let escala = 3;
 
     let rect = Rectangulo {
         ancho: dbg!(20 * escala),
         alto: 80,
     };
+
+    println!(
+        "El area es del rectangulo. es {} pixeles cuadrados",
+        rect.crear_area()
+    );
 
     dbg!(&rect);
 }
