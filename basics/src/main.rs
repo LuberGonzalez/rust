@@ -264,6 +264,10 @@ fn main() {
         fn crear_area(&self) -> u32 {
             self.ancho * self.alto
         }
+        // metodo asociado
+        fn nuevo(ancho: u32, alto: u32) -> Rectangulo {
+            Rectangulo { ancho, alto }
+        }
     }
 
     let escala = 3;
@@ -272,6 +276,10 @@ fn main() {
         ancho: dbg!(20 * escala),
         alto: 80,
     };
+
+    let grande = Rectangulo::nuevo(30, 90);
+
+    println!("EL rectangulo es {:?}", grande);
 
     println!(
         "El area es del rectangulo. es {} pixeles cuadrados",
