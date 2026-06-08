@@ -287,4 +287,51 @@ fn main() {
     );
 
     dbg!(&rect);
+
+    // enums and pattern matching
+    fn procesar(estado: PedidoEstado) {
+        match estado {
+            PedidoEstado::Enviado => println!("Ya se envio"),
+            PedidoEstado::Pendiente => println!("El pedido esta pendiente"),
+        }
+    }
+
+    enum PedidoEstado {
+        Enviado,
+        Pendiente,
+    }
+
+    let pedido1 = PedidoEstado::Enviado;
+    let pedido2 = PedidoEstado::Pendiente;
+
+    procesar(pedido1);
+    procesar(pedido2);
+
+    // metodos en los enums
+    #[derive(Clone, Copy)]
+    enum Fruta {
+        Manzana,
+        Platano,
+        Naranja,
+        Uva,
+    }
+
+    let f1 = Fruta::Manzana;
+    let f2 = Fruta::Platano;
+    let f3 = Fruta::Naranja;
+    let f4 = Fruta::Uva;
+
+    println!("Calorías de una manzana: {} kcal", calorias(f1));
+    println!("Calorías de un plátano: {} kcal", calorias(f2));
+    println!("Calorías de una naranja: {} kcal", calorias(f3));
+    println!("Calorías de una uva: {} kcal", calorias(f4));
+
+    fn calorias(fruta: Fruta) -> u32 {
+        match fruta {
+            Fruta::Manzana => 95,
+            Fruta::Platano => 105,
+            Fruta::Naranja => 62,
+            Fruta::Uva => 3, // por unidad
+        }
+    }
 }
